@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container justify-content-center my-3">
+    <ul class="nav nav-underline justify-content-center bg-info-subtle p-3">
+        <li class="nav-item mr-3">
+        <a class="nav-link text-dark-emphasis " href="/">Home</a>
+        </li>
+        <li class="nav-item mx-3">
+        <a class="nav-link text-dark-emphasis" href="/student_management">Students Management</a>
+        </li>
+        <li class="nav-item mx-3">
+        <a class="nav-link active" href="/employee-management">Employee Management</a>
+        </li>
+        <li class="nav-item ml-3">
+        <a class="nav-link text-dark-emphasis" href="/about-us/">About Us</a>
+        </li>
+    </ul>
+</div>
+
+
+<div class="container-fluid my-5">
+    <div class="row mt-2  justify-content-center">
+        <div class="col-lg-4">
+            <div class="card text-center">
+                <img src="/static/img/Employee_mgmt.jpeg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title ">View Employee Info</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="/student_management" class="btn btn-outline-info w-50">Enter</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card text-center">
+                <img src="/static/img/add_employee.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title ">Add New Employee</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addNewEmployeeModal">
+                    Add New Employee
+                  </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if emp_id|length > 0  %}
+<div class="alert alert-success alert-dismissible" role="alert">
+  Employee with id {{ emp_id }} added successfully.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+
+<!-- Add New Employee Modal -->
+<div class="modal fade" id="addNewEmployeeModal" tabindex="-1" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 " id="addEmployeeModalLabel">Add New Employee</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action='/employee-management/' method="post">
+                {% csrf_token %}
+                <label for="employee_id" class="form-label">Employee Id</label>
+                <input type="text" class="form-control" id="employee_id_input" name="employee_id">
+
+                <label for="employee_name" class="form-label">Employee Name</label>
+                <input type="text" class="form-control" id="employee_name_input" name="employee_name">
+                
+                <button type="submit" class="btn btn-primary mt-2">Submit</button>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock %}

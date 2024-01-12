@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container justify-content-center my-3">
+    <ul class="nav nav-underline justify-content-center bg-info-subtle p-3">
+        <li class="nav-item mr-3">
+        <a class="nav-link text-dark-emphasis " href="/">Home</a>
+        </li>
+        <li class="nav-item mx-3">
+        <a class="nav-link active" href="/student_management">Students Management</a>
+        </li>
+        <li class="nav-item mx-3">
+        <a class="nav-link text-dark-emphasis" href="/employee-management">Employee Management</a>
+        </li>
+        <li class="nav-item ml-3">
+        <a class="nav-link text-dark-emphasis" href="/about-us/">About Us</a>
+        </li>
+    </ul>
+</div>
+
+<div class="container justify-content-center">
+    <div class="card m-3">
+        <div class="row g-0">
+        <div class="col-md-4">
+            <img src="/static/img/student_corner.jpg" class="img-fluid rounded-start h-auto" alt="...">
+        </div>
+        <div class="col-md-8 ">
+            <div class="card-body">
+            <h2 class="card-title">Student Management</h5>
+            <p class="card-text">Get Student Details By Admin No</p>
+            <form>
+                <div class="col-3 my-3">
+                <label for="admission_number" class="form-label">Admission Number</label>
+                <input type="text" class="form-control" id="admn_number_input">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+{% for student in Students %}
+<div class="container justify-content-center"
+    <div class="card m-3" style="width: 18rem;">
+        <img src="/static/img/generic_student.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title text-center">Name: {{ student.student_name }} </h5>
+            <p class="card-text text-center">Admn No: {{student.student_admnNo}} </p>
+            <p class="card-text text-center">DOB: {{student.student_dob}} </p>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+
+{% endblock %}

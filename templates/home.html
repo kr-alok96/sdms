@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container justify-content-center my-3">
+    <ul class="nav nav-underline justify-content-center bg-info-subtle p-3">
+        <li class="nav-item mr-3">
+        <a class="nav-link active" href="#">Home</a>
+        </li>
+        <li class="nav-item mx-3">
+        <a class="nav-link text-dark-emphasis" href="/student_management">Students Management</a>
+        </li>
+        <li class="nav-item mx-3">
+        <a class="nav-link text-dark-emphasis" href="/employee-management">Employee Management</a>
+        </li>
+        <li class="nav-item ml-3">
+        <a class="nav-link text-dark-emphasis" href="/about-us/">About Us</a>
+        </li>
+    </ul>
+</div>
+
+<div class="container-fluid my-5">
+    <div class="row mt-2  justify-content-center">
+        <div class="col-lg-4">
+            <div class="card text-center">
+                <img src="/static/img/student_corner.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title ">Student Management</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="/student_management" class="btn btn-outline-info w-50">Enter</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card text-center">
+                <img src="/static/img/Employee_mgmt.jpeg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title ">Employee Management</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-outline-info w-50">Enter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+{% endblock %}
