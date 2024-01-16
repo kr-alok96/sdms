@@ -26,3 +26,11 @@ def student_management(request):
     html_data['Students'] = student_data # html template expects data in dictionary format
 
     return render(request,"student_management.html",html_data)
+
+def stock_management(request):
+
+    html_data = {
+        'title': 'Stock Management'
+    }
+
+    return render(request,"stock_management.html",html_data)

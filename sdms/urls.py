@@ -25,5 +25,6 @@ urlpatterns = [
     path('about-us/', views.about_us),
     path('student_management/', views.student_management),
     path('employee-management/', emp_views.employee_management),
+    path('stock-management/', views.stock_management),
     path('about-us/<slug:stakeholder>', views.about_us_description),
 ]
